@@ -1,4 +1,3 @@
-
 var scores, roundScore, activePlayer;
 
 scores = [0, 0];
@@ -11,14 +10,11 @@ document.getElementById('score-1').textContent = '0';
 document.getElementById('current-0').textContent = '0';
 document.getElementById('current-1').textContent = '0';
 
-
 document.querySelector('.btn-roll').addEventListener('click' , function(){
 
-  var dice = Math.floor(Math.random() * 6 + 1);
-  document.querySelector('#current-' + activePlayer).textContent = dice;
-
+  var dice = Math.floor(Math.random() * 6) + 1;
+   //first change to block and cancle ivisible then give it a value
   var diceDom = document.querySelector('.dice')
-  //first change to block and cancle ivisible then give it a value
   diceDom.style.display = 'block';
   diceDom.src = 'dice-' + dice + '.png';
   
@@ -34,8 +30,14 @@ document.querySelector('.btn-roll').addEventListener('click' , function(){
     document.querySelector('#current-0').textContent = '0';
     document.querySelector('#current-1').textContent = '0';
     
-    document.querySelector('.player-0-panel').classList.remove('active');
-    document.querySelector('.player-1-panel').classList.add('active');
-
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+    diceDom.style.display = 'none';
   }
+
+
 });
+
+document.querySelector('.btn-hold').addEventListener('click', function () {
+  
+})
